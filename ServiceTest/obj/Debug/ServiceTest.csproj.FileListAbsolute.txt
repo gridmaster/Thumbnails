@@ -1,0 +1,12 @@
+D:\Projects\ServiceTest\ServiceTest\bin\Debug\ServiceTest.exe.config
+D:\Projects\ServiceTest\ServiceTest\bin\Debug\ServiceTest.exe
+D:\Projects\ServiceTest\ServiceTest\bin\Debug\ServiceTest.pdb
+D:\Projects\ServiceTest\ServiceTest\obj\Debug\ServiceTest.exe
+D:\Projects\ServiceTest\ServiceTest\obj\Debug\ServiceTest.pdb
+D:\Projects\ServiceTest\ServiceTest\obj\Debug\ServiceTest.csprojResolveAssemblyReference.cache
+D:\Projects\Thumbnails\ServiceTest\bin\Debug\ServiceTest.exe.config
+D:\Projects\Thumbnails\ServiceTest\bin\Debug\ServiceTest.exe
+D:\Projects\Thumbnails\ServiceTest\bin\Debug\ServiceTest.pdb
+D:\Projects\Thumbnails\ServiceTest\obj\Debug\ServiceTest.csprojResolveAssemblyReference.cache
+D:\Projects\Thumbnails\ServiceTest\obj\Debug\ServiceTest.exe
+D:\Projects\Thumbnails\ServiceTest\obj\Debug\ServiceTest.pdb
