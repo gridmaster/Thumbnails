@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Drawing.Drawing2D;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.ServiceModel.Description;
 using System.IO;
 using System.Drawing;
+using HtmlToThumbnail;
+using RawImageService.Properties;
 
 namespace RawImageService
 {
@@ -18,14 +21,8 @@ namespace RawImageService
     // implement the service contract
     public class Service : IImageServer
     {
-
         public Stream GetThumbnail(string uri)
         {
-            string path = @"D:\Templates\HtmlServiceImage.bmp";
-
-            if( File.Exists(path) )
-                File.Delete(path);
-
             if (string.IsNullOrEmpty(uri))
             {
                 return null;
@@ -40,14 +37,10 @@ namespace RawImageService
                 try
                 {
                     Bitmap bitmap =
-                        HtmlToThumbnail.WebsiteThumbnail.GetThumbnail(Thumbnail.Uri, Thumbnail.Width,
+                        WebsiteThumbnail.GetThumbnail(Thumbnail.Uri, Thumbnail.Width,
                                                                       Thumbnail.Hight, Thumbnail.ThumbWidth,
                                                                       Thumbnail.ThumbHight);
-                    MemoryStream ms = new MemoryStream();
-                    bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    ms.Position = 0;
-                    WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
-                    return ms;
+                    return CheckForBlankPage(bitmap);
                 }
                 catch (Exception)
                 {
@@ -56,7 +49,45 @@ namespace RawImageService
                 return null;
             }
         }
+
+        public Stream CheckForBlankPage(Bitmap bitmap)
+        {
+            MemoryStream ms = new MemoryStream();
+
+            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            ms.Position = 0;
+
+            Bitmap blankImage = Resources.blank_image;
+
+            using (MemoryStream ms2 = new MemoryStream())
+            {
+                blankImage.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                string firstBitmap = Convert.ToBase64String(ms.ToArray());
+                String secondBitmap = Convert.ToBase64String(ms2.ToArray());
+
+                if (firstBitmap.Equals(secondBitmap))
+                {
+                    bitmap = Resources.no_image;
+                    Bitmap newImage = new Bitmap(160, 120);
+                    using (Graphics gr = Graphics.FromImage(newImage))
+                    {
+                        gr.SmoothingMode = SmoothingMode.HighQuality;
+                        gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                        gr.DrawImage(bitmap, new Rectangle(0, 0, 160, 120));
+                    }
+                    newImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    ms.Position = 0;
+                }
+            }
+            WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
+
+            return ms;
+        }
     }
+
+
 
     class Program
     {

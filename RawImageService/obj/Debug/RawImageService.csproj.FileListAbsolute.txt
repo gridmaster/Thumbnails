@@ -17,3 +17,13 @@ D:\Projects\Thumbnails\RawImageService\bin\Debug\HtmlToThumbnail.pdb
 D:\Projects\Thumbnails\RawImageService\obj\Debug\RawImageService.csprojResolveAssemblyReference.cache
 D:\Projects\Thumbnails\RawImageService\obj\Debug\RawImageService.exe
 D:\Projects\Thumbnails\RawImageService\obj\Debug\RawImageService.pdb
+D:\Projects\Thunbnails\RawImageService\bin\Debug\RawImageService.exe.config
+D:\Projects\Thunbnails\RawImageService\obj\Debug\RawImageService.exe
+D:\Projects\Thunbnails\RawImageService\obj\Debug\RawImageService.pdb
+D:\Projects\Thunbnails\RawImageService\bin\Debug\RawImageService.exe
+D:\Projects\Thunbnails\RawImageService\bin\Debug\RawImageService.pdb
+D:\Projects\Thunbnails\RawImageService\bin\Debug\HtmlToThumbnail.dll
+D:\Projects\Thunbnails\RawImageService\bin\Debug\HtmlToThumbnail.pdb
+D:\Projects\Thunbnails\RawImageService\obj\Debug\RawImageService.Properties.Resources.resources
+D:\Projects\Thunbnails\RawImageService\obj\Debug\RawImageService.csproj.GenerateResource.Cache
+D:\Projects\Thunbnails\RawImageService\obj\Debug\RawImageService.csprojResolveAssemblyReference.cache

@@ -8,7 +8,7 @@ namespace ServiceTest
         private static void Main(string[] args)
         {
             string uri = string.Concat("http://localhost:8000",
-                                       string.Format("/thumbnail/?uri={0}", "file:///D:/Templates/Test4.htm")); // "www.cnn.com")); 
+                                       string.Format("/thumbnail/?uri={0}", "www.yahoo.com")); //   file:///D:/Templates/Test4.htm")); // "www.cnn.com")); 
 
             tryThis(uri);
         }
